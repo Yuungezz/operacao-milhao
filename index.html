@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operação Milhão – Edição Guerra Fria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="radar" aria-hidden="true"></div>
+
+<!-- TELA 1: abertura -->
+<main id="start" class="screen active">
+  <div class="stamp">Confidencial</div>
+  <h1>Operação Milhão</h1>
+  <p class="sub">Edição Guerra Fria · 16 perguntas · 1947–1991</p>
+  <p class="brief">Agente, responda corretamente e suba do DEFCON 5 ao DEFCON 1. Você pode parar a qualquer momento e levar o prêmio acumulado, mas um erro custa metade dele.</p>
+  <label>Codinome do agente <input id="name" maxlength="16" placeholder="Agente Volkov"></label>
+  <label class="check"><input type="checkbox" id="tr" checked> Traduzir perguntas da API para português</label>
+  <p id="status" class="status">Conectando ao satélite…</p>
+  <button id="btn-start" class="big" disabled>Iniciar missão</button>
+</main>
+
+<!-- TELA 2: jogo -->
+<main id="game" class="screen">
+  <header>
+    <span id="agent"></span>
+    <div id="defcon" aria-label="Nível DEFCON"></div>
+    <span id="score"></span>
+  </header>
+  <div class="layout">
+    <section class="dossier">
+      <div class="meta"><span id="qnum"></span><span id="qdiff"></span><span id="qsrc"></span></div>
+      <h2 id="question"></h2>
+      <div id="answers"></div>
+      <div class="prizes"><span id="p-win"></span><span id="p-stop"></span><span id="p-lose"></span></div>
+      <div class="actions">
+        <button id="btn-confirm" disabled>Travar resposta</button>
+        <button id="btn-stop" class="ghost">Parar</button>
+      </div>
+      <div class="lifelines">
+        <button id="ll-skip">Pular (3)</button>
+        <button id="ll-cards">Cartas</button>
+        <button id="ll-plates">Placas</button>
+      </div>
+    </section>
+    <aside><ol id="ladder"></ol></aside>
+  </div>
+</main>
+
+<!-- TELA 3: resultado -->
+<main id="end" class="screen">
+  <div class="stamp" id="end-stamp"></div>
+  <h1 id="end-title"></h1>
+  <p id="end-msg" class="brief"></p>
+  <p class="final" id="end-prize"></p>
+  <ul id="end-stats"></ul>
+  <button id="btn-again" class="big">Nova missão</button>
+</main>
+
+<div id="modal" class="modal" hidden>
+  <div class="box"><p id="modal-text"></p>
+    <button id="modal-yes">Confirmar</button><button id="modal-no" class="ghost">Voltar</button></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
